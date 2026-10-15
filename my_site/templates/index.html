@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سایت من</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>سلام {{ name }}! 👋</h1>
+        <p>این یک سایت ساده با Flask و HTML هست.</p>
+
+        <h2>مهارت‌های من:</h2>
+        <ul>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/about">درباره ما</a>
+    </div>
+</body>
+</html>
