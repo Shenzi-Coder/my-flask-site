@@ -35,7 +35,7 @@
 
         a { text-decoration: none; color: inherit; }
 
-        /* ================= نوار پیشرفت و نشانگر ماوس ================= */
+        /* ================= نوار پیشرفت ================= */
         .progress-bar {
             position: fixed; top: 0; left: 0; height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -68,33 +68,20 @@
         /* ================= بخش‌های اصلی ================= */
         .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 10; }
 
-        /* بنر سینمایی با افکت پارالاکس */
+        /* بنر سینمایی */
         .hero-banner {
             height: 400px;
             border-radius: 30px;
             background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            position: relative;
-            margin-bottom: 60px;
-            overflow: hidden;
+            position: relative; margin-bottom: 60px; overflow: hidden;
             border: 1px solid var(--glass-border);
             display: flex; align-items: center; justify-content: center;
         }
-        .hero-banner::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to top, var(--bg-color) 10%, transparent 90%);
-            z-index: 1;
-        }
-        .hero-text {
-            position: relative; z-index: 2; text-align: center;
-            animation: float 6s ease-in-out infinite;
-        }
+        .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-color) 10%, transparent 90%); z-index: 1; }
+        .hero-text { position: relative; z-index: 2; text-align: center; animation: float 6s ease-in-out infinite; }
         .hero-text h1 { font-size: 50px; font-weight: 900; text-shadow: 0 0 20px #000; margin-bottom: 10px; }
         .hero-text p { font-size: 20px; color: var(--primary); font-weight: bold; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
         /* کارت‌های خبری */
         .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px; }
@@ -150,7 +137,7 @@
             box-shadow: 0 0 100px 50px var(--primary), 0 0 200px 100px var(--secondary), 0 0 300px 150px #fff;
         }
 
-        /* ================= تیکه تیکه شدن و فضای 3D ================= */
+        /* ================= تیکه تیکه شدن ================= */
         body.enter-3d .main-container,
         body.enter-3d header,
         body.enter-3d .magic-footer {
@@ -159,7 +146,7 @@
             transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* ================= مودال قوانین (سه بعدی و شیشه‌ای) ================= */
+        /* ================= مودال قوانین (۳۰ بند) ================= */
         .terms-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(3, 3, 8, 0.7); backdrop-filter: blur(20px);
@@ -173,11 +160,10 @@
             border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 30px;
             width: 90%; max-width: 900px; max-height: 85vh; overflow-y: auto;
             padding: 60px; box-shadow: 0 0 80px rgba(0, 240, 255, 0.2), inset 0 0 40px rgba(0, 240, 255, 0.05);
-            transform: rotateY(90deg) scale(0.5); /* ورود از کنار */
+            transform: rotateY(90deg) scale(0.5);
             transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
-        /* اسکرول بار سفارشی */
         .terms-content::-webkit-scrollbar { width: 8px; }
         .terms-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 10px; }
         .terms-content::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; box-shadow: 0 0 10px var(--primary); }
@@ -194,26 +180,30 @@
         .close-btn:hover { background: var(--secondary); color: #fff; transform: rotate(180deg) scale(1.1); box-shadow: 0 0 20px var(--secondary); }
 
         .terms-content h2 { color: #fff; font-size: 34px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; text-shadow: 0 0 15px rgba(255,255,255,0.3); }
-        .terms-content h3 { color: var(--primary); margin: 35px 0 15px 0; font-size: 22px; display: flex; align-items: center; gap: 10px; }
+        .terms-content h3 { color: var(--primary); margin: 25px 0 10px 0; font-size: 18px; display: flex; align-items: center; gap: 10px; }
         .terms-content h3::before { content: '■'; font-size: 12px; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .terms-content p { color: #b0b0c0; font-size: 16px; text-align: justify; margin-bottom: 20px; line-height: 2; }
+        .terms-content p { color: #b0b0c0; font-size: 15px; text-align: justify; margin-bottom: 15px; line-height: 1.9; }
 
-        /* بند پرچم مقدس (طراحی خاص) */
+        /* بندهای خاص */
         .highlight-rule {
             background: linear-gradient(90deg, rgba(46, 204, 113, 0.15), transparent);
-            border-right: 5px solid #2ecc71; padding: 30px; margin: 40px 0;
+            border-right: 5px solid #2ecc71; padding: 25px; margin: 30px 0;
             border-radius: 0 15px 15px 0; color: #fff !important;
-            box-shadow: 0 0 30px rgba(46, 204, 113, 0.1);
-            position: relative; overflow: hidden;
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.1); position: relative; overflow: hidden;
         }
-        .highlight-rule::before {
-            content: '🇮🇷'; position: absolute; top: 10px; left: 10px;
-            font-size: 80px; opacity: 0.05; transform: rotate(-15deg);
-        }
+        .highlight-rule::before { content: '🇮🇷'; position: absolute; top: 10px; left: 10px; font-size: 80px; opacity: 0.05; transform: rotate(-15deg); }
         .highlight-rule h3 { color: #2ecc71 !important; margin-top: 0 !important; }
         .highlight-rule h3::before { color: #2ecc71 !important; text-shadow: 0 0 10px #2ecc71 !important; }
+        
+        .islamic-rule {
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.1), transparent);
+            border-right: 5px solid var(--secondary); padding: 25px; margin: 30px 0;
+            border-radius: 0 15px 15px 0; color: #fff !important;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.1);
+        }
+        .islamic-rule h3 { color: var(--secondary) !important; margin-top: 0 !important; }
 
-        /* ================= فوتر با افکت نور ================= */
+        /* ================= فوتر ================= */
         .magic-footer {
             background: rgba(3, 3, 8, 0.95); border-top: 1px solid var(--glass-border);
             padding: 80px 40px 30px; margin-top: auto; position: relative;
@@ -281,7 +271,6 @@
 
     <div class="main-container" id="mainContent">
         
-        <!-- بنر سینمایی -->
         <div class="hero-banner">
             <div class="hero-text">
                 <h1>به دنیای شنزی خوش آمدید</h1>
@@ -289,7 +278,6 @@
             </div>
         </div>
 
-        <!-- شبکه اخبار -->
         <div class="news-grid">
             <article class="news-card">
                 <span class="news-tag tag-sport">ورزشی</span>
@@ -310,58 +298,110 @@
             </article>
         </div>
 
-        <!-- دکمه قوانین -->
         <div class="terms-btn-container">
             <button class="magic-btn" id="openTermsBtn">ورود به قوانین و مقررات 🚀</button>
         </div>
 
     </div>
 
-    <!-- مودال قوانین جامع -->
+    <!-- مودال قوانین (۳۰ بند) -->
     <div class="terms-modal" id="termsModal">
         <div class="terms-content">
             <button class="close-btn" id="closeTermsBtn">✕</button>
-            <h2>📜 شرایط و مقررات جامع استفاده از شنزی</h2>
-            <p>به رسانه مستقل <strong>شنزی (Shanzi)</strong> خوش آمدید. این سند یک توافق‌نامه حقوقی بین شما (کاربر) و تیم شنزی است. لطفاً قبل از استفاده از خدمات ما، تمامی ۱۲ بند زیر را با دقت مطالعه فرمایید. استفاده از سایت به معنای پذیرش کامل این شرایط است.</p>
+            <h2>📜 شرایط و مقررات جامع (۳۰ بند)</h2>
+            <p>به رسانه مستقل <strong>شنزی (Shanzi)</strong> خوش آمدید. این سند یک توافق‌نامه حقوقی کامل بین شما (کاربر) و تیم شنزی است. لطفاً قبل از استفاده از خدمات ما، تمامی ۳۰ بند زیر را با دقت مطالعه فرمایید. استفاده از سایت به معنای پذیرش کامل این شرایط است.</p>
             
-            <h3>۱. ماهیت و اهداف محتوا</h3>
-            <p>این وب‌سایت شامل بخش‌های خبری (سیاسی، ورزشی، بین‌الملل)، تحلیل‌های جنگ، ولاگ‌های شخصی و محتوای طنز است. تمامی مطالب صرفاً برای اطلاع‌رسانی، روشنگری و سرگرمی منتشر می‌شوند. ما همواره تلاش می‌کنیم تا صدای مستقل و بی‌طرفی برای مخاطبان خود باشیم.</p>
+            <h3>۱. پذیرش شرایط</h3>
+            <p>ورود و استفاده از این وب‌سایت به منزله پذیرش کامل این قوانین است. اگر با هر یک از موارد زیر موافق نیستید، لطفاً از سایت استفاده نکنید.</p>
 
-            <h3>۲. حقوق مالکیت معنوی و کپی‌رایت</h3>
-            <p>تمام متن‌ها، تصاویر، لوگوها، کدهای برنامه‌نویسی و محتوای تولید شده متعلق به تیم شنزی است. هرگونه کپی‌برداری، بازنشر یا استفاده تجاری از محتوا بدون ذکر منبع و کسب اجازه کتبی، ممنوع بوده و پیگرد قانونی دارد. استفاده از محتوا با ذکر منبع در شبکه‌های اجتماعی مجاز است.</p>
-
-            <h3>۳. سلب مسئولیت و دقت اخبار</h3>
-            <p>محتوای طنز سایت صرفاً جنبه سرگرمی دارد و نباید به عنوان واقعیت یا اظهارنظر جدی تلقی شود. ما تضمینی برای دقت ۱۰۰٪ اخبار منتشر شده از منابع دیگر ارائه نمی‌دهیم و مسئولیت تصمیمات کاربران بر اساس این اخبار را نمی‌پذیریم. تحلیل‌های سیاسی و جنگی صرفاً نظرات نویسندگان است.</p>
-            
-            <h3>۴. رفتار کاربران و بخش نظرات</h3>
-            <p>انتشار هرگونه محتوای توهین‌آمیز، نفرت‌پراکنی، تهمت، هرزنامه (Spam) یا مطالب غیرقانونی در بخش نظرات ممنوع است. ما حق حذف آن‌ها و مسدودسازی کاربران خاطی را بدون اطلاع قبلی محفوظ می‌داریم.</p>
-
-            <h3>۵. حریم خصوصی کاربران</h3>
-            <p>ما به حریم خصوصی شما احترام می‌گذاریم. اطلاعات شخصی شما (مانند ایمیل در بخش خبرنامه) صرفاً برای ارسال اخبار استفاده شده و به هیچ شخص ثالثی فروخته یا واگذار نمی‌شود. کوکی‌های سایت صرفاً برای بهبود تجربه کاربری استفاده می‌شوند.</p>
-
-            <!-- بند پرچم مقدس -->
-            <div class="highlight-rule">
-                <h3>🇮🇷 ۶. پایبندی به اصول و ارزش‌های ملی</h3>
-                <p>تمامی فعالیت‌های رسانه‌ای، خبری و تولید محتوای این وب‌سایت، <strong>زیر نظر و در راستای احترام به پرچم مقدس جمهوری اسلامی ایران</strong> و ارزش‌های والای ملی انجام می‌شود. ما خود را متعهد به حفظ حرمت مقدسات، وحدت ملی و اصول قانونی کشور می‌دانیم و هیچ محتوایی در تضاد با این اصول منتشر نخواهد شد. سربلندی ایران عزیز، خط قرمز ماست.</p>
+            <div class="islamic-rule">
+                <h3>۲. پایبندی به جمهوری اسلامی</h3>
+                <p>تمامی فعالیت‌های این رسانه، تحت قوانین و مقررات <strong>جمهوری اسلامی ایران</strong> بوده و ما خود را متعهد به حفظ ارزش‌ها، امنیت ملی و اصول اسلامی می‌دانیم. هرگونه محتوای مغایر با این اصول به شدت ممنوع است.</p>
             </div>
 
-            <h3>۷. لینک‌های خارجی</h3>
-            <p>سایت شنزی ممکن است شامل لینک‌هایی به وب‌سایت‌های دیگر باشد. ما مسئولیتی در قبال محتوا یا سیاست‌های حریم خصوصی آن سایت‌ها نداریم.</p>
+            <h3>۳. ماهیت و اهداف محتوا</h3>
+            <p>این وب‌سایت شامل اخبار سیاسی، ورزشی، تحلیل جنگ، ولاگ و طنز است. تمامی مطالب برای اطلاع‌رسانی و سرگرمی منتشر می‌شوند و صدای مستقل مخاطبان هستند.</p>
 
-            <h3>۸. تغییرات در خدمات</h3>
-            <p>ما حق تغییر، تعلیق یا قطع خدمات (یا هر بخشی از آن) را در هر زمان و بدون اطلاع قبلی برای خود محفوظ می‌داریم.</p>
+            <h3>۴. حقوق مالکیت معنوی</h3>
+            <p>تمام متن‌ها، تصاویر، لوگوها و کدهای سایت متعلق به شنزی است. کپی‌برداری تجاری بدون اجازه کتبی ممنوع و پیگرد قانونی دارد.</p>
 
-            <h3>۹. قوانین حاکم</h3>
-            <p>این شرایط تابع قوانین جمهوری اسلامی ایران است. هرگونه اختلاف ناشی از تفسیر این قوانین، در مراجع صالحه کشور بررسی خواهد شد.</p>
+            <h3>۵. استفاده منصفانه</h3>
+            <p>بازنشر مطالب در شبکه‌های اجتماعی تنها با ذکر منبع (لینک به شنزی) مجاز است. استفاده انبوه و خودکار (اسکرپینگ) ممنوع است.</p>
 
-            <h3>۱۰. تبلیغات و اسپانسرها</h3>
-            <p>مطالب تبلیغاتی به وضوح از اخبار جدا شده‌اند. شنزی مسئولیتی در قبال کیفیت محصولات یا خدمات ارائه شده توسط اسپانسرها نمی‌پذیرد.</p>
+            <h3>۶. سلب مسئولیت اخبار</h3>
+            <p>اخبار از منابع مختلف جمع‌آوری می‌شوند. ما تضمینی برای دقت ۱۰۰٪ آن‌ها نمی‌دهیم و مسئولیت تصمیم‌گیری کاربران بر اساس اخبار بر عهده خودشان است.</p>
 
-            <h3>۱۱. حق ویرایش و حذف</h3>
-            <p>تیم تحریریه شنزی حق ویرایش، کوتاه کردن یا حذف هرگونه نظر یا محتوای کاربران را که با سیاست‌های ما مغایرت داشته باشد، محفوظ می‌داند.</p>
+            <h3>۷. ماهیت محتوای طنز</h3>
+            <p>ولاگ‌ها و مطالب طنز صرفاً جنبه سرگرمی دارند و نباید به عنوان واقعیت یا توهین به شخصیت‌های حقیقی و حقوقی تلقی شوند.</p>
 
-            <h3>۱۲. پذیرش نهایی</h3>
-            <p>با کلیک بر روی دکمه ورود و یا ادامه استفاده از سایت، شما تأیید می‌کنید که تمامی موارد فوق را خوانده، درک کرده و با آن موافق هستید.</p>
+            <h3>۸. تحلیل‌های سیاسی و جنگی</h3>
+            <p>تحلیل‌های منتشر شده نظرات نویسندگان است و لزوماً دیدگاه رسمی شنزی یا نهادهای دولتی نیست.</p>
+
+            <h3>۹. رفتار کاربران</h3>
+            <p>انتشار توهین، نفرت‌پراکنی، تهمت، هرزنامه یا مطالب غیرقانونی در بخش نظرات ممنوع است.</p>
+
+            <h3>۱۰. حق مسدودسازی</h3>
+            <p>مدیران سایت حق حذف نظرات و مسدودسازی کاربران خاطی را بدون اطلاع قبلی دارند.</p>
+
+            <h3>۱۱. حریم خصوصی کاربران</h3>
+            <p>اطلاعات شخصی شما (مانند ایمیل) صرفاً برای ارسال خبرنامه استفاده شده و به شخص ثالثی فروخته نمی‌شود.</p>
+
+            <h3>۱۲. کوکی‌ها</h3>
+            <p>این سایت از کوکی‌ها برای بهبود تجربه کاربری و تحلیل بازدیدها استفاده می‌کند. با ادامه استفاده، شما با این امر موافقید.</p>
+
+            <h3>۱۳. امنیت حساب کاربری</h3>
+            <p>در صورت ایجاد حساب کاربری، حفظ رمز عبور بر عهده شماست. شنزی مسئولیتی در قبال هک شدن حساب‌ها ندارد.</p>
+
+            <h3>۱۴. لینک‌های خارجی</h3>
+            <p>سایت شنزی ممکن است به وب‌سایت‌های دیگر لینک دهد. ما مسئول محتوا یا سیاست‌های آن سایت‌ها نیستیم.</p>
+
+            <h3>۱۵. محتوای تبلیغاتی</h3>
+            <p>تبلیغات به وضوح از اخبار جدا شده‌اند. شنزی مسئولیتی در قبال کیفیت محصولات اسپانسرها ندارد.</p>
+
+            <h3>۱۶. تغییرات در خدمات</h3>
+            <p>ما حق تغییر، تعلیق یا قطع خدمات را در هر زمان و بدون اطلاع قبلی محفوظ می‌داریم.</p>
+
+            <h3>۱۷. قوانین حاکم</h3>
+            <p>این شرایط تابع قوانین جمهوری اسلامی ایران است و هرگونه اختلاف در مراجع صالحه بررسی می‌شود.</p>
+
+            <h3>۱۸. حق ویرایش محتوا</h3>
+            <p>تیم تحریریه حق کوتاه کردن یا ویرایش مطالب ارسالی کاربران را برای رعایت استانداردها محفوظ می‌داند.</p>
+
+            <h3>۱۹. عدم تضمین دسترسی</h3>
+            <p>ما تضمین نمی‌کنیم که سایت در تمام لحظات در دسترس باشد. ممکن است به دلیل تعمیرات یا مشکلات فنی، موقتاً قطع شود.</p>
+
+            <h3>۲۰. مسئولیت کیفیت اطلاعات</h3>
+            <p>اگرچه تلاش می‌کنیم اطلاعات دقیق باشد، اما هیچ تضمینی برای عاری بودن از خطا وجود ندارد.</p>
+
+            <h3>۲۱. سن کاربران</h3>
+            <p>کاربران زیر ۱۳ سال باید با نظارت والدین از سایت استفاده کنند.</p>
+
+            <h3>۲۲. قوانین ارسال محتوا (برای نویسندگان)</h3>
+            <p>نویسندگان مهمان باید محتوای اصیل ارائه دهند. کپی‌برداری از دیگران باعث حذف مطالب و لغو دسترسی می‌شود.</p>
+
+            <h3>۲۳. عدم انتقال حقوق</h3>
+            <p>هیچ‌یک از این قوانین به شما حق مالکیت بر برند شنزی یا کدهای آن را نمی‌دهد.</p>
+
+            <h3>۲۴. فورس ماژور</h3>
+            <p>شنزی مسئولیتی در قبال قطعی ناشی از جنگ، تحریم، بلایای طبیعی یا قطعی سراسری اینترنت ندارد.</p>
+
+            <h3>۲۵. سیاست بازپرداخت (در صورت وجود)</h3>
+            <p>در حال حاضر تمامی خدمات سایت رایگان است، اما در صورت ارائه خدمات پولی، سیاست بازپرداخت اعلام خواهد شد.</p>
+
+            <h3>۲۶. افشای اطلاعات به مقامات قانونی</h3>
+            <p>در صورت درخواست مقامات قضایی جمهوری اسلامی، شنزی موظف است اطلاعات لازم را در چارچوب قانون ارائه دهد.</p>
+
+            <h3>۲۷. قوانین پوشش خبری</h3>
+            <p>ما از پوشش شایعات تأیید نشده خودداری می‌کنیم و تنها اخبار دارای منبع معتبر را منتشر می‌کنیم.</p>
+
+            <h3>۲۸. حق استفاده از محتوای کاربران</h3>
+            <p>با ارسال نظرات یا محتوا، شما به شنزی اجازه می‌دهید تا آن‌ها را در سایت یا شبکه‌های اجتماعی منتشر کند.</p>
+
+            <h3>۲۹. به‌روزرسانی قوانین</h3>
+            <p>ما حق تغییر این ۳۰ بند را در هر زمان داریم. تغییرات از زمان درج در سایت لازم‌الاجرا هستند.</p>
+
+            <h3>۳۰. پذیرش نهایی</h3>
+            <p>با کلیک بر روی دکمه ورود و یا ادامه استفاده از سایت، شما تأیید می‌کنید که تمامی ۳۰ بند فوق را خوانده، درک کرده و با آن موافق هستید.</p>
         </div>
     </div>
 
@@ -385,7 +425,8 @@
                     <li><a href="#">اخبار سیاسی</a></li>
                     <li><a href="#">ورزشی</a></li>
                     <li><a href="#">ولاگ طنز</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <!-- لینک درباره ما به فایل about.html تنظیم شد -->
+                    <li><a href="/about.html">درباره ما</a></li>
                 </ul>
             </div>
             <div class="footer-section newsletter">
@@ -404,20 +445,17 @@
     </footer>
 
     <script>
-        // نوار پیشرفت
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             var scrolled = (winScroll / height) * 100;
             document.getElementById("progressBar").style.width = scrolled + "%";
 
-            // افکت هدر در هنگام اسکرول
             var header = document.getElementById("mainHeader");
             if (winScroll > 50) { header.classList.add("scrolled"); } 
             else { header.classList.remove("scrolled"); }
         };
 
-        // افکت سینمایی و سه بعدی دکمه
         const openBtn = document.getElementById('openTermsBtn');
         const closeBtn = document.getElementById('closeTermsBtn');
         const modal = document.getElementById('termsModal');
@@ -425,43 +463,29 @@
         const body = document.body;
 
         openBtn.addEventListener('click', () => {
-            // 1. پخش نور (Light Burst)
             lightBurst.style.transition = 'none';
             lightBurst.style.transform = 'translate(-50%, -50%) scale(0)';
             lightBurst.style.opacity = '1';
             
-            // با کمی تاخیر نور منفجر می‌شود
             setTimeout(() => {
                 lightBurst.style.transition = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease';
                 lightBurst.style.transform = 'translate(-50%, -50%) scale(400)';
                 lightBurst.style.opacity = '0';
             }, 50);
 
-            // 2. تیکه تیکه شدن صفحه و رفتن به فضای 3D
-            setTimeout(() => {
-                body.classList.add('enter-3d');
-            }, 400);
-
-            // 3. باز شدن مودال سه بعدی
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 1000);
+            setTimeout(() => { body.classList.add('enter-3d'); }, 400);
+            setTimeout(() => { modal.classList.add('active'); }, 1000);
         });
 
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('active');
-            setTimeout(() => {
-                body.classList.remove('enter-3d');
-            }, 500); // تاخیر برای اینکه انیمیشن بسته شدن مودال تمام شود
+            setTimeout(() => { body.classList.remove('enter-3d'); }, 500);
         });
 
-        // بستن با کلیک بیرون
         modal.addEventListener('click', (e) => {
             if(e.target === modal) {
                 modal.classList.remove('active');
-                setTimeout(() => {
-                    body.classList.remove('enter-3d');
-                }, 500);
+                setTimeout(() => { body.classList.remove('enter-3d'); }, 500);
             }
         });
     </script>
